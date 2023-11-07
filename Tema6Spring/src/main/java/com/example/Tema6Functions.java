@@ -32,5 +32,27 @@ public class Tema6Functions {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/laptopInput" , method = RequestMethod.POST)
 	
+	public ModelAndView convertorPage( @PathVariable String brand) {
+		ModelAndView mav= new ModelAndView();
+		
+		String laptopBrand = brand;
+		int brandLength = laptopBrand.length();
+		if(brandLength % 2 ==0 ) {
+			 String r="par";
+			 mav.addObject("isPar", r);
+			 
+		 } else {
+			 String r="impar";
+			 mav.addObject("isPar", r);
+			 
+		 }
+		
+		mav.addObject("laptopBrand", laptopBrand);
+		mav.addObject("length", brandLength);
+		mav.setViewName("laptopInput");
+		
+		return mav;
+	}
 }
