@@ -8,6 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Tema6Functions {
+
+  @RequestMapping("/")
+	    public String homePage() {
+	        return "homePage";
+	    }
+	
 	@RequestMapping(value = "/laptops/{brand}" , method = RequestMethod.GET)
 	
 	public ModelAndView laptopPage( @PathVariable String brand) {
